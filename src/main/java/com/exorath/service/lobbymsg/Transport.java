@@ -34,9 +34,7 @@ public class Transport {
     }
 
     public static Route getGetMessageRouter(Service svc) {
-        return (req, res) -> {
-            return svc.getMessage(req.params("gameId"));
-        };
+        return (req, res) -> svc.getMessage(req.params("gameId"));
     }
 
     public static Route getUpdateMessageRouter(Service svc) {
