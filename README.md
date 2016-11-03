@@ -11,19 +11,27 @@ If there's no message assigned to the gameId, the default message is returned.
 **Arguments**:
 - gameId (string): The id of the game to retrieve a welcome message as
 
-**Response**: {msg: "\<it i=10\>\<pl\>Welcome\</pl\>\<pl\>To\</pl\>\<pl\>Exorath\</pl\>\</it\>"}
+**Response**: 
+```json
+{msg: "\<it i=10\>\<pl\>Welcome\</pl\>\<pl\>To\</pl\>\<pl\>Exorath\</pl\>\</it\>"}
+```
 - msg (string)[OPTIONAL]: The message, in ExoHUD XML notation. If no msg was returned it probably means an error occured and no message should be displayed to the player 
 - format (string)[OPTIONAL]: The format the response is in, currently empty as ExoHUD XML notation is always used
 
 ###/msgs/{gameId} [PUT]:
 ####Updates the server record.
 **Body**:
-{"msg": "\<it i=10\>\<pl\>Welcome\</pl\>\<pl\>To\</pl>\<pl\>Exorath\</pl\>\</it\>"}
+```json
+{"msg":` "\<it i=10\>\<pl\>Welcome\</pl\>\<pl\>To\</pl>\<pl\>Exorath\</pl\>\</it\>"}
+```
 
 **Arguments**:
 - gameId (string): The gameId of the server instance
 - msg (string) [OPTIONAL]: The updated message, not sending this will clear the current message.
 
-**Response**: {success: true}
+**Response**: 
+```json
+{success: true}
+```
 - success (boolean): Whether or not the record was updated successfully 
 - err (string)[OPTIONAL]: Error message only responded when the put was not successful.

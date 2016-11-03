@@ -16,7 +16,9 @@
 
 package com.exorath.service.lobbymsg;
 
+import com.exorath.service.lobbymsg.impl.DynamoDBProvider;
 import com.exorath.service.lobbymsg.impl.DynamoDBService;
+import com.exorath.service.lobbymsg.impl.TableNameProvider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -31,7 +33,7 @@ public class Main {
 
     private Main(){
         //Creates a new instance of the service, with the dynamodb implementation
-        this.svc = new DynamoDBService(new CacheSecondsProvider().getCacheSeconds(120));
+        this.svc = new DynamoDBService(new CacheSecondsProvider().getCacheSeconds(120), new TableNameProvider().getTableName(), new DynamoDBProvider().getDB());
         LOG.info("Service " + this.svc.getClass() + " instantiated");
         //Sets up the http transport
         Transport.setup(svc, new PortProvider(80));

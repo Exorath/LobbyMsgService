@@ -62,10 +62,14 @@ public abstract class SimpleService implements Service {
         long currentTimeInMillis = new Date().getTime();
         if (shouldUpdateCache(currentTimeInMillis)) {
             lastCacheTimeInMillis = currentTimeInMillis;
-            messagesByGameId.clear();
-            Map<String, Message> newMessagesByGameId = fetchMessagesByGameId();
-            if (newMessagesByGameId != null)
-                messagesByGameId.putAll(newMessagesByGameId);
+            try {
+                Map<String, Message> newMessagesByGameId = fetchMessagesByGameId();
+                messagesByGameId.clear();
+                if (newMessagesByGameId != null)
+                    messagesByGameId.putAll(newMessagesByGameId);
+            }catch(Exception e){
+                e.printStackTrace();
+            }
         }
     }
 
@@ -73,7 +77,7 @@ public abstract class SimpleService implements Service {
         return messagesByGameId.get(gameId);
     }
 
-    public abstract Map<String, Message> fetchMessagesByGameId();
+    public abstract Map<String, Message> fetchMessagesByGameId() throws Exception;
 
     /**
      * Whether or not the cache time has expired
