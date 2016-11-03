@@ -13,7 +13,7 @@ If there's no message assigned to the gameId, the default message is returned.
 
 **Response**: 
 ```json
-{msg: "\<it i=10\>\<pl\>Welcome\</pl\>\<pl\>To\</pl\>\<pl\>Exorath\</pl\>\</it\>"}
+{"msg": "<it i=10><pl>Welcome</pl><pl>To</pl><pl>Exorath</pl></it>"}
 ```
 - msg (string)[OPTIONAL]: The message, in ExoHUD XML notation. If no msg was returned it probably means an error occured and no message should be displayed to the player 
 - format (string)[OPTIONAL]: The format the response is in, currently empty as ExoHUD XML notation is always used
@@ -22,7 +22,7 @@ If there's no message assigned to the gameId, the default message is returned.
 ####Updates the server record.
 **Body**:
 ```json
-{"msg":` "\<it i=10\>\<pl\>Welcome\</pl\>\<pl\>To\</pl>\<pl\>Exorath\</pl\>\</it\>"}
+{"msg": "<it i=10><pl>Welcome</pl><pl>To</pl><pl>Exorath</pl></it>"}
 ```
 
 **Arguments**:
@@ -31,7 +31,7 @@ If there's no message assigned to the gameId, the default message is returned.
 
 **Response**: 
 ```json
-{success: true}
+{"success": true}
 ```
 - success (boolean): Whether or not the record was updated successfully 
 - err (string)[OPTIONAL]: Error message only responded when the put was not successful.
