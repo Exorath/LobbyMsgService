@@ -16,7 +16,6 @@
 
 package com.exorath.service.lobbymsg;
 
-import com.google.gson.Gson;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
